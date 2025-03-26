@@ -1,0 +1,13 @@
+{
+    "extends": "@neuralfog/ts-config/index.json",
+    "include": ["."],
+    "excluse": ["dist/**/*"],
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "plugins": [
+            {
+                "name": "@neuralfog/elemix-ts-plugin"
+            }
+        ]
+    }
+}
