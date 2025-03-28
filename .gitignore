@@ -22,7 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*tgz
 
 node_modules
 dist
 coverage
+
+.ui-kit

@@ -9,22 +9,28 @@
         "./dist/**/*"
     ],
     "exports": {
-        ".": "./dist/index.js"
+        "./*": "./dist/*.js"
+    },
+    "imports": {
+        "#src/*": [
+            "./src/*"
+        ]
     },
     "scripts": {
         "clean": "rm -rf ./dist ./coverage",
         "clean-npm": "rm -rf ./node_modules/ && rm -f package-lock.json && npm i",
         "emit-declarations": "tsc --emitDeclarationOnly --declaration --outDir ./dist",
-        "build-lib": "vite build",
-        "build": "npm run clean && npm run build-lib && npm run emit-declarations",
+        "build-lib": "vite --config vite.build.config.mjs build",
+        "build": "npm run clean && npm run build-lib && npm run emit-declarations > /dev/null",
         "lint": "tsc --noEmit && biome format && biome lint",
         "release": "npm run clean && npm run build && npm publish --access public"
     },
     "devDependencies": {
         "@neuralfog/biome-config": "0.1.2",
         "@neuralfog/elemix": "0.1.8",
-        "@neuralfog/elemix-ts-plugin": "0.2.2",
-        "@neuralfog/elemix-vite-plugin": "0.2.2",
+        "@neuralfog/elemix-analaser": "file:neuralfog-elemix-analaser-0.2.2.tgz",
+        "@neuralfog/elemix-ts-plugin": "file:neuralfog-elemix-ts-plugin-0.2.2.tgz",
+        "@neuralfog/elemix-vite-plugin": "file:neuralfog-elemix-vite-plugin-0.2.2.tgz",
         "@neuralfog/ts-config": "0.1.1",
         "terser": "5.39.0",
         "typescript": "5.8.2",

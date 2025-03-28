@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ~/dev/elemix-typescript/packages/elemix-analyser/ && npm run clean && npm run build
+cd ~/dev/ui-kit/ && npm install --save-dev "$(npm pack ~/dev/elemix-typescript/packages/elemix-analyser/)"
+
+
+cd ~/dev/elemix-typescript/packages/elemix-ts-plugin/ && npm run clean && npm run build
+cd ~/dev/ui-kit/ && npm install --save-dev "$(npm pack ~/dev/elemix-typescript/packages/elemix-ts-plugin/)"
+
+cd ~/dev/elemix-typescript/packages/elemix-vite-plugin/ && npm run clean && npm run build
+cd ~/dev/ui-kit/ && npm install --save-dev "$(npm pack ~/dev/elemix-typescript/packages/elemix-vite-plugin/)"
